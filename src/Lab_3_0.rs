@@ -1,5 +1,9 @@
-// Функция траснпонирования матрицы 3x3
+/*
+// Удалите это, когда завершите работу над кодом
+//#![allow(unused_variables, dead_code)]
+
 fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
+    //unimplemented!()
     // Создание дефолтной матрицы 3x3
     let mut transposed_matrix = [[0; 3]; 3];
     // Транспонирование матрицы
@@ -42,10 +46,4 @@ fn main() {
     let transposed = transpose(matrix);
     println!("Транспонированная матрица: {:#?}", transposed);
 }
-
-
-
-
-//fn main() {
-//    println!("Hello, world!");
-//}
+*/
