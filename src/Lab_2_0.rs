@@ -1,3 +1,4 @@
+/*
 /// Определяет длину последовательности Коллатца для числа n.
 fn collatz_length(mut n: i32) -> u32 {
     let k : u32;
@@ -30,7 +31,4 @@ fn main() {
 fn test_collatz_length() {
     assert_eq!(collatz_length(11), 15);
 }
-
-//fn main() {
-//    println!("Hello, world!");
-//}
+*/
