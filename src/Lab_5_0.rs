@@ -1,7 +1,11 @@
+/*
+
+mod Lab_5_0;
 
 #[derive(Debug)]
 /// Событие лифта на которое должен реагировать контроллер.
 enum Event {
+    // TODO:добавьте необходимые варианты
     // Перечисление возможных событий
     CurrentFloor(i32), // Текущий этаж
     DoorOpened, // Двери лифта открыты
@@ -13,6 +17,7 @@ enum Event {
     Maintenance, // Лифт на ремонте
 }
 
+/// A direction of travel.
 /// Направление движения лифта
 #[derive(Debug)]
 enum Direction {
@@ -65,3 +70,4 @@ fn main() {
 //fn main() {
 //    println!("Hello, world!");
 //}
+*/
