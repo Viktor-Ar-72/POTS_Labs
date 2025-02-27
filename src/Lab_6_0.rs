@@ -1,3 +1,7 @@
+/*
+
+mod Lab_6_0;
+
 /// Операция над двумя выражениями.
 #[derive(Debug)]
 enum Operation {
@@ -138,10 +142,4 @@ fn main() {
 
 }
 
-
-
-
-//fn main() {
-//    println!("Hello, world!");
-//}
-
+*/
