@@ -1,3 +1,4 @@
+/* DEBUG
 // Подключение Ordering (Ord идёт в комплекте)
 use std::cmp::Ordering;
 
@@ -58,3 +59,4 @@ fn main() {
 //    println!("Hello, world!");
 //}
 
+*/
