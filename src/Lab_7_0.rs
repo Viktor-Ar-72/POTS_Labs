@@ -1,3 +1,4 @@
+/* DEBUG
 pub trait Logger {
     /// Логирует сообщение указанного уровня.
     fn log(&self, verbosity: u8, message: &str);
@@ -6,7 +7,6 @@ pub trait Logger {
 struct StderrLogger;
 
 impl Logger for StderrLogger {
-    // Логирование сообщения
     fn log(&self, verbosity: u8, message: &str) {
         eprintln!("verbosity={verbosity}: {message}");
     }
@@ -18,12 +18,24 @@ struct VerbosityFilter {
     inner: StderrLogger,
 }
 
-// Реализация типажа `Logger` для `VerbosityFilter`.
+// TODO: Реализовать типаж`Logger` для `VerbosityFilter`.
 impl Logger for VerbosityFilter {
     fn log(&self, verbosity: u8, message: &str) {
+        /// Вариант А, где логирование в else
+        //if verbosity > self.max_verbosity {
+            // Вывод сообщения об ошибке
+            //eprintln!("Сообщение нельзя публиковать, так как многословность сообщения {verbosity} \
+            //больше установленного максимума {}", self.max_verbosity)
+        //}
+        //else {
+        //   //println!("{}", message)
+        //    self.inner.log(verbosity, message)
+        //}
+        //
+        /// Вариант Б, где логирование в true
         // Если многословность не превышает заданный уровень
         if verbosity <= self.max_verbosity {
-            // Производится логирование через StderrLogger
+        // Производится логирование через StderrLogger
             self.inner.log(verbosity, message)
         }
         else {
@@ -43,8 +55,4 @@ fn main() {
 }
 
 
-
-//fn main() {
-//    println!("Hello, world!");
-//}
-
+*/
