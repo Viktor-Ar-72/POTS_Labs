@@ -1,3 +1,19 @@
+/* DEBUG
+use std::io::Read;
+
+struct RotDecoder<R: Read> {
+    input: R,
+    rot: u8,
+}
+
+
+
+1) В main вызывается rot.read_to_string(&mut result)
+2) Rust видит, что RotDecoder<R> реализует Read, а Read имеет метод read_to_string
+3) read_to_string использует read, который был реализован
+4) Сначала он читает данные через self.input.read(buf),
+5) Затем применяет replace_letter ко всем байтам.
+
 use std::io::Read;
 
 struct RotDecoder<R: Read> {
