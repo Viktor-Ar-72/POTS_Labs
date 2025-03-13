@@ -1,15 +1,17 @@
+/* DEBUG
 use std::collections::HashMap;
 use std::hash::Hash;
 
 /// Counter определяет количество значений типа T в коллекции.
 struct Counter<T> {
+    //values: HashMap<u32, u64>,
     values: HashMap<T, u64>,
 }
 
 impl<T> Counter<T>
 // Добавление ограничения на тип T, HashMap требует, чтобы ключи реализовывали Eq и Hash
 // https://doc.rust-lang.org/std/collections/struct.HashMap.html
-    where T : Eq + Hash
+where T : Eq + Hash
 {
     /// Создаем новый счетчик Counter.
     fn new() -> Self {
@@ -19,6 +21,7 @@ impl<T> Counter<T>
     }
 
     /// Считает количество появлений заданного значения.
+    //fn count(&mut self, value: u32) {
     fn count(&mut self, value: T) {
         if self.values.contains_key(&value) {
             *self.values.get_mut(&value).unwrap() += 1;
@@ -28,12 +31,14 @@ impl<T> Counter<T>
     }
 
     /// Возвращает количество появлений заданного значения.
+    //fn times_seen(&self, value: u32) -> u64 {
     fn times_seen(&self, value: T) -> u64 {
         self.values.get(&value).copied().unwrap_or_default()
     }
 }
 
 fn main() {
+    //let mut ctr = Counter::new();
     let mut ctr: Counter<u32> = Counter::new();
     ctr.count(13);
     ctr.count(14);
@@ -42,6 +47,7 @@ fn main() {
     ctr.count(14);
     ctr.count(11);
     for i in 10..20 {
+        //println!("Значение {} видели {} раз", ctr.times_seen(i), i);
         println!("Значение {} видели {} раз", i, ctr.times_seen(i));
     }
 
@@ -63,11 +69,4 @@ fn main() {
     }
 
 }
-
-
-
-
-//fn main() {
-//    println!("Hello, world!");
-//}
-
+*/
