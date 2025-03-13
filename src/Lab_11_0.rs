@@ -1,3 +1,4 @@
+/* DEBUG
 pub trait Logger {
     /// Помещает в лог сообщения заданного уровня.
     fn log(&self, verbosity: u8, message: &str);
@@ -41,7 +42,7 @@ impl<V: Logger> Logger for VerbosityFilter<V> {
 // В качестве передаваемого дальше сообщения - трейт Logger или его имплементации
 // В качестве разрешения - замыкание, есть ли указанная строка в сообщении
 struct Filter<V, P>
-    where
+where
     V: Logger, // Определение возможных типов логгера - Logger и его производные StderrLogger и VerbosityFilter
     P: Fn(u8, &str) -> bool, // Замыкание, возвращающее bool - можно ли пропускать сообщение
 {
@@ -51,7 +52,7 @@ struct Filter<V, P>
 
 // Инициализация Filter
 impl<V, P> Filter<V, P>
-    where
+where
     V: Logger,
     P: Fn(u8, &str) -> bool,
 {
@@ -66,7 +67,7 @@ impl<V, P> Filter<V, P>
 
 // Имплементация Logger для Filter
 impl<V, C> Logger for Filter<V, C>
-    where
+where
     V: Logger,
     C: Fn(u8, &str) -> bool,
 {
@@ -126,3 +127,5 @@ fn main() {
 //fn main() {
 //    println!("Hello, world!");
 //}
+
+*/
