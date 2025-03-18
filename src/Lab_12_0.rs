@@ -1,3 +1,4 @@
+/* DEBUG
 #[derive(Debug)]
 // Перечисление видов языков программирования
 enum Language {
@@ -27,7 +28,7 @@ impl Package {
     /// Возвращает этот пакет как зависимость необходимую для
     /// компиляции другого пакета.
     fn as_dependency(&self) -> Dependency {
-        /* todo!("1") */
+        // todo!("1")
         Dependency {
             name: self.name.clone(), version_expression: self.version.clone()
         }
@@ -40,7 +41,7 @@ struct PackageBuilder(Package);
 impl PackageBuilder {
     // Инициализация пакета вместе с сохранением его имени
     fn new(name: impl Into<String>) -> Self {
-        /* todo!("2") */
+        // todo!("2")
         PackageBuilder {
             0: Package {
                 name: name.into(),
@@ -60,25 +61,25 @@ impl PackageBuilder {
 
     /// Задает автора пакета.
     fn authors(mut self, authors: Vec<String>) -> Self {
-        /* todo!("3") */
+        // todo!("3")
         self.0.authors = authors;
         self
     }
 
     /// Добавляет зависимость.
     fn dependency(mut self, dependency: Dependency) -> Self {
-        /* todo!("4") */
+        // todo!("4")
         self.0.dependencies.push(dependency);
         self
     }
 
     /// Задает язык. Если не указан язык, используется значение по умолчанию None.
     fn language(mut self, language: Language) -> Self {
-        /* todo!("5") */
+        // todo!("5")
         //match language {
-            // Три возможных варианта на выбор того, как задать значение языка пакета
-            //Language => self.0.language = Option::from(Language),
-            //Language => self.0.language = Some(Language),
+        // Три возможных варианта на выбор того, как задать значение языка пакета
+        //Language => self.0.language = Option::from(Language),
+        //Language => self.0.language = Some(Language),
         //    Language => self.0.language = Language.into(),
         //}
         self.0.language = Some(language);
@@ -133,3 +134,4 @@ fn main() {
 //fn main() {
 //    println!("Hello, world!");
 //}
+*/
