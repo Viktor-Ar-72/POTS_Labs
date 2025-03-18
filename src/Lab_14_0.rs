@@ -1,5 +1,6 @@
+/* DEBUG
 // TODO: закомментируйте эту строчку, когда закончите отладку программы.
-//#![allow(unused_variables, dead_code)]
+#![allow(unused_variables, dead_code)]
 
 
 #![allow(dead_code)]
@@ -29,23 +30,31 @@ impl User {
     }
 
     pub fn visit_doctor(&mut self, measurements: Measurements) -> HealthReport {
+        //todo!("Обновление данных после визита к врачу")
         // Обновление количеств визитов к врачу
         self.visit_count += 1;
+        //self.height = measurements.height;
+        //self.last_blood_pressure = measurements.blood_pressure.into();
         // Вычисление разницы давлений
         let blood_pressure_change_value = self.last_blood_pressure.map(|(p1, p2)| {
+            //let (p1 as i32, p2 as i32) = self.last_blood_pressure;
             let (n1, n2) = measurements.blood_pressure;
+            //(p1 as i32 - n1 as i32, p2 as i32 - n2 as i32)
             (n1 as i32 - p1 as i32, n2 as i32 - p2 as i32)
         });
         // Сохранение текущего роста
         let patient_height_before = self.height;
         // Обновление данных роста и давления
         self.height = measurements.height;
+        //self.last_blood_pressure = Option::from(measurements.blood_pressure);
         self.last_blood_pressure = Some(measurements.blood_pressure);
         // Составление отчёта
         HealthReport {
             patient_name: self.name.as_str(),
             visit_count: self.visit_count,
             height_change: measurements.height - patient_height_before,
+            //blood_pressure_change: Option::from(self.last_blood_pressure - measurements.blood_pressure),
+            //blood_pressure_change: self.last_blood_pressure - measurements.blood_pressure,
             blood_pressure_change: blood_pressure_change_value,
         }
     }
@@ -84,6 +93,10 @@ fn test_visit() {
 
 
 
+
+
+
 //fn main() {
 //    println!("Hello, world!");
 //}
+*/
