@@ -1,4 +1,4 @@
-
+/*
 /// Узел двоичного дерева.
 #[derive(Debug)]
 struct Node<T: Ord> {
@@ -79,10 +79,12 @@ impl<W: Ord> Subtree<W> {
             // Если поддерево присутствует
             Some(ref current_node) => {
                 // Если нужный элемент совпадает
+                //if *value == current_node.value {
                 if value == &current_node.value {
                     true
                 }
                 // Если больше текущего - проверка правого узла
+                //else if *value > current_node.value {
                 else if value > &current_node.value {
                     current_node.right.has(value)
                 }
@@ -160,3 +162,4 @@ fn main() {}
 //fn main() {
 //    println!("Hello, world!");
 //}
+*/
