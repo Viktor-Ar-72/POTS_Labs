@@ -1,3 +1,4 @@
+/* DEBUG
 /// Тип данных в байтовом буфере (WireType).
 enum WireType {
     /// Тип Varint обозначает одно значение VARINT.
@@ -7,7 +8,7 @@ enum WireType {
     //I64, //-- не требуется для этого задания
     /// Тип Len обозначает длину в формате VARINT за которым следует указанное количество байтов
     Len,
-    // Тип I32 это 4 байт в формате little-endian содержащие
+    // Тип I32 это 4 байтоа в формате little-endian содержащие
     // 32-битовое целое значение со знаком или значение типа float.
     //I32, //-- не требуется для этого задания
 }
@@ -87,7 +88,7 @@ fn parse_varint(data: &[u8]) -> (u64, &[u8]) {
         }
     }
 
-    // Больше 7 байт - ошибка.
+    // Больше 7 байтов - ошибка.
     panic!("Слишком много байтов для varint");
 }
 
@@ -106,6 +107,7 @@ fn parse_field(data: &[u8]) -> (Field, &[u8]) {
     let (field_num, wire_type) = unpack_tag(tag);
     // В зависимости от типа поля
     let (fieldvalue, remainder) = match wire_type {
+        //_ => todo!("Based on the wire type, build a Field, consuming as many bytes as necessary.")
         // Если тип VARINT
         WireType::Varint => {
             let (value, new_remainder) = parse_varint(remainder);
@@ -118,6 +120,7 @@ fn parse_field(data: &[u8]) -> (Field, &[u8]) {
             (FieldValue::Len(value_bytes), new_remainder)
         }
     };
+    //todo!("Return the field, and any un-consumed bytes.")
     (Field {field_num, value: fieldvalue}, remainder)
 }
 
@@ -148,6 +151,7 @@ struct Person<'a> {
     phone: Vec<PhoneNumber<'a>>,
 }
 
+// TODO: Написать ProtoMessage для Person и PhoneNumber.
 // Для Person
 impl<'a> ProtoMessage<'a> for Person<'a> {
     fn add_field(&mut self, field: Field<'a>) {
@@ -157,7 +161,8 @@ impl<'a> ProtoMessage<'a> for Person<'a> {
             1 => self.name = field.value.as_str(),
             // Если 2 - id
             2 => self.id = field.value.as_u64(),
-            // Если 3 - создаётся PhoneNumber на основе парсинга данных
+            // Если 3 - создаётся PhoneNumber по умолчанию
+            //3 => self.phone.push(PhoneNumber::default()),
             3 => {
                 let mut phone = PhoneNumber::default();
                 let data = field.value.as_bytes();
@@ -242,3 +247,4 @@ fn main() {
 //fn main() {
 //    println!("Hello, world!");
 //}
+*/
