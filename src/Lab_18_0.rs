@@ -1,3 +1,4 @@
+/* DEBUG
 pub fn luhn(cc_number: &str) -> bool {
     let mut sum = 0;
     let mut double = false;
@@ -81,3 +82,4 @@ fn main() {
 //fn main() {
 //    println!("Hello, world!");
 //}
+*/
