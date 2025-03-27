@@ -1,8 +1,10 @@
+/* DEBUG
 /// Вычислите разность между значениями values на расстоянии offset друг от друга,
 /// переходя по модулю в начало коллекции.
 ///
 /// Элемент n результата это разность values[(n+offset)%len] - values[n].
 fn offset_differences(offset: usize, values: Vec<i32>) -> Vec<i32> {
+    //todo!()
     let mut results : Vec<i32> = Vec::new();
     let mut i = 0;
     while i < values.len() {
@@ -45,3 +47,4 @@ fn main() {
 //fn main() {
 //    println!("Hello, world!");
 //}
+*/
